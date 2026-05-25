@@ -1,17 +1,16 @@
-name: My First Workflow
-run-name: ${{ github.actor }} 正在練習 Git 自動化
+name: GitHub Actions Demo
+run-name: GitHub Actions Demo
 
-on: [push]
+# 觸發此 action 的時機
+on:
+  push:
+    branches:
+      - '*' # 只要有任何一個 commit 被 push，就會觸發此 action
+  workflow_dispatch: # 可以手動執行此 action
 
+# 預先定義此 action 要幹嘛
 jobs:
   demo:
     runs-on: ubuntu-latest
     steps:
-      - name: 檢查程式碼
-        uses: actions/checkout@v4
-
-      - name: 執行測試命令
-        run: echo "這是一個自動化測試任務！"
-
-      - name: 列出當前檔案
-        run: ls -la
+      - run: echo '執行成功'
