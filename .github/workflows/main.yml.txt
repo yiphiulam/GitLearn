@@ -1,0 +1,17 @@
+name: My First Workflow
+run-name: ${{ github.actor }} 正在練習 Git 自動化
+
+on: [push]
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 檢查程式碼
+        uses: actions/checkout@v4
+
+      - name: 執行測試命令
+        run: echo "這是一個自動化測試任務！"
+
+      - name: 列出當前檔案
+        run: ls -la
